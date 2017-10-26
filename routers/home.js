@@ -1,9 +1,7 @@
 const router = require('koa-router')();
+const controller = require('../controllers/home')
 
 // Routing: /
 
 module.exports =
-    router.get('/', async (ctx, next) => {
-        ctx.status = 200;
-        ctx.body = "Hello World!";
-    });
+    router.get('/', controller.get_home);

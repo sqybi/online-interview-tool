@@ -13,8 +13,9 @@
     "url": "http://sqybi.com"
   },
   "dependencies": {
-    "koa": "2.3.0",
+    "ejs": "^2.5.7",
+    "koa": "^2.3.0",
     "koa-router": "^7.2.1",
-    "socket.io": "2.0.3"
+    "socket.io": "^2.0.4"
   }
 }
