@@ -1,0 +1,20 @@
+{
+  "name": "online-interview-tool",
+  "description": "A tool for online interview which can sync code between interviewee and interviewer in real-time.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sqybi/online-interview-tool",
+  "bugs": {
+    "url": "https://github.com/sqybi/online-interview-tool/issues",
+    "email": "sqybi@126.com"
+  },
+  "author": {
+    "name": "Qingyu Sui",
+    "email": "sqybi@126.com",
+    "url": "http://sqybi.com"
+  },
+  "dependencies": {
+    "koa": "2.3.0",
+    "koa-router": "^7.2.1",
+    "socket.io": "2.0.3"
+  }
+}
