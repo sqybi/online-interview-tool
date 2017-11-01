@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const controller = require('../controllers/doc')
+const controller = require('../controllers/doc');
 
 // Routing: /d
 
