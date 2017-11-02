@@ -2,14 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test Page</title>
+    <title>Document <%= doc_id %></title>
+
+    <link rel='stylesheet' type="text/css" href="/css/doc.css">
 </head>
 <body>
 
+<header id="editor-toolbar" class="toolbar">
+    <div id="doc-id" class="toolbar-item"><strong>Document: </strong><%= doc_id %></div>
+    <div id="disconnected-alert" class="toolbar-item"> * DISCONNECTED * </div>
+
+    <select id="editor-theme" name="Theme" class="toolbar-selector">
+        <option value="ace/theme/solarized_light" selected>Light</option>
+        <option value="ace/theme/solarized_dark">Dark</option>
+    </select>
+    <div class="toolbar-selector-label">Theme:</div>
+    <div class="toolbar-selector-space"></div>
+    <select id="editor-highlight" name="Highlight" class="toolbar-selector">
+        <option value="ace/mode/plain_text" selected>Plain Text</option>
+        <option value="ace/mode/c_cpp">C++</option>
+        <option value="ace/mode/csharp">C#</option>
+        <option value="ace/mode/java">Java</option>
+        <option value="ace/mode/javascript">JavaScript</option>
+        <option value="ace/mode/python">Python</option>
+    </select>
+    <div class="toolbar-selector-label">Language:</div>
+    <div class="toolbar-selector-space"></div>
+    <select id="editor-keymap" name="Keymap" class="toolbar-selector">
+        <option value="" selected>Normal</option>
+        <option value="ace/keyboard/emacs">Emacs</option>
+        <option value="ace/keyboard/vim">VIM</option>
+    </select>
+    <div class="toolbar-selector-label">Keymap:</div>
+</header>
+
 <pre id="editor"></pre>
 
-<script src="/js/editor/ace.js" type="text/javascript" />
-<script src="/js/doc/main.js" type="text/javascript" />
+<script type="text/javascript">
+    var doc_id = '<%= doc_id %>';
+</script>
+<script src="/js/socket.io/socket.io.js" type="text/javascript"></script>
+<script src="/js/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/js/editor/ace.js" type="text/javascript"></script>
+<script src="/js/doc/main.compiled.js" type="text/javascript"></script>
 
 </body>
 </html>

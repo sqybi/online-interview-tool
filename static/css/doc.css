@@ -1,0 +1,43 @@
+body {
+    overflow: hidden;
+}
+
+.toolbar-item {
+    display: inline-block;
+    float: left;
+}
+
+.toolbar-selector, .toolbar-selector-label {
+    display: inline-block;
+    float: right;
+}
+
+.toolbar-selector-label {
+    margin-left: 10px;
+}
+
+#doc-id {
+    font-size: 10pt;
+    border: 1px dashed;
+}
+
+#editor-toolbar {
+    width: 100%;
+    height: 20px;
+}
+
+#editor {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid;
+}
+
+#disconnected-alert {
+    color: red;
+    font-size: 12pt;
+    visibility: visible;
+    margin-left: 5px;
+}

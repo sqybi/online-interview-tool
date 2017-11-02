@@ -59,3 +59,9 @@ typings/
 
 # WebStorm
 .idea/
+
+# Cache
+documents/
+
+# Compiled Javascript files
+*.compiled.js*

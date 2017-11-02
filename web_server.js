@@ -1,15 +1,17 @@
-const config = require('config');
+const config = require('./config');
+const router = require('./routers/index');
 const util = require('util');
 const koaStatic = require('koa-static');
 const koa = require('koa');
 const path = require('path');
-const router = require('./routers/index');
 
-const app = new koa();
 const staticPath = './static';
 
 function start() {
-    /* Middleware */
+    // koa
+    const app = new koa();
+
+    /* |--- Start of Middleware ---> */
 
     // Static
     app.use(koaStatic(path.join(__dirname, staticPath)));
@@ -30,10 +32,9 @@ function start() {
     // Router
     app.use(router.routes()).use(router.allowedMethods());
 
-    /* End of Middleware */
+    /* <--- End of Middleware ---| */
 
-    // Start server
-    app.listen(config.listen_port);
+    return app;
 }
 
 module.exports = {

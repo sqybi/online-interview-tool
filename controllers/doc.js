@@ -1,3 +1,4 @@
+const config = require('../config');
 const ejs = require('ejs');
 
 let re = /^[a-zA-Z0-9\-]{1,20}$/;
@@ -12,7 +13,10 @@ module.exports = {
     get_doc: async function get_doc(ctx, next) {
         let doc_id = ctx.params.doc_id;
         if (re.test(doc_id)) {
-            ejs.renderFile('./views/doc.ejs', {doc_id: doc_id}, function (err, str) {
+            ejs.renderFile('./views/doc.ejs', {
+                doc_id: doc_id,
+                server_port: config.document_server_listen_port,
+            }, function (err, str) {
                 if (err) {
                     ctx.status = 500;
                     ctx.body = {err_str: err};
