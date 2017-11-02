@@ -62,6 +62,3 @@ typings/
 
 # Cache
 documents/
-
-# Compiled Javascript files
-*.compiled.js*
