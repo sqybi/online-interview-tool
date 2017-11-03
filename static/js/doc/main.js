@@ -11,7 +11,7 @@ let connected = false;
 /* Editor */
 
 // Code completion tool
-ace.require('/ace/ext/language_tools')
+ace.require('/ace/ext/language_tools');
 
 // Create editor
 const editor = ace.edit('editor');
