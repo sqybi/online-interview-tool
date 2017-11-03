@@ -21,6 +21,8 @@ function start(app) {
     const server = http.Server(app.callback());
     const io = new socket_io(server);
 
+    const sockets_list_by_doc_id = [];
+
     // Socket operations
     io.on('connection', function (socket) {
         let doc_id = null;
@@ -32,6 +34,10 @@ function start(app) {
             if (doc === null) {
                 doc = await manager.add(doc_id);
             }
+            if (!(doc_id in sockets_list_by_doc_id)) {
+                sockets_list_by_doc_id[doc_id] = [];
+            }
+            sockets_list_by_doc_id[doc_id][socket.id] = socket;
             socket.emit('refresh', {
                 content_text: await doc.getText(),
             })
@@ -48,10 +54,23 @@ function start(app) {
                 console.log('Need reconnection from client ' + socket.id + '.');
             }
             await doc.apply(data.event);
-            io.sockets.emit('apply', {
-                client_id: socket.id,
-                event: data.event,
-            });
+            for (let socket_id in sockets_list_by_doc_id[doc_id]) {
+                sockets_list_by_doc_id[doc_id][socket_id].emit('apply', {
+                    client_id: socket.id,
+                    event: data.event,
+                });
+            }
+        });
+
+        socket.on('disconnect', async function (data) {
+            if (doc_id === null) {
+                return;
+            }
+            if (doc_id in sockets_list_by_doc_id) {
+                if (socket.id in sockets_list_by_doc_id[doc_id]) {
+                    delete sockets_list_by_doc_id[doc_id][socket.id];
+                }
+            }
         });
     });
 
