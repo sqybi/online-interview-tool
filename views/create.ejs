@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Interview Tool</title>
+</head>
+<body>
+
+<form id="candidate-info" action="/d/__create" method="post">
+    <p>Create a new document:</p>
+    Language template:
+    <select name="lang">
+        <option value="chinese">中文</option>
+        <option value="english">English</option>
+        <option value="none">*(Do not generate)*</option>
+    </select>
+    <br>
+    Candidate name: <input type="text" name="name">
+    <br>
+    Interview date: <input type="text" name="iyear" maxlength="4" size="4">-<input type="text" name="imonth" maxlength="2" size="2">-<input type="text" name="idate" maxlength="2" size="2"> <input type="text" name="ihour" maxlength="2" size="2">:<input type="text" name="iminute" maxlength="2" size="2"> UTC+0800
+    <br>
+    <input type="submit" value="Create">
+</form>
+
+<script src="/js/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var date = new Date();
+    $('#candidate-info input[name="iyear"]').val(date.getFullYear());
+    $('#candidate-info input[name="imonth"]').val(('0' + date.getMonth()).slice(-2));
+    $('#candidate-info input[name="idate"]').val(('0' + date.getDate()).slice(-2));
+    $('#candidate-info input[name="ihour"]').val(('0' + date.getHours()).slice(-2));
+    $('#candidate-info input[name="iminute"]').val(('0' + date.getMinutes()).slice(-2));
+</script>
+
+</body>
+</html>

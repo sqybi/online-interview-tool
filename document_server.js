@@ -1,22 +1,24 @@
 const config = require('./config');
 const DocumentManager = require('./document_manager/documentManager');
+const doc_id_generator = require('./utils/doc_id_generator');
 const fs = require('fs');
 const http = require('http');
 const socket_io = require('socket.io');
 
 const documentStoragePath = './documents';
 
+// Document Manager
+if (!fs.existsSync(documentStoragePath)) {
+    fs.mkdirSync(documentStoragePath);
+}
+const manager = new DocumentManager(documentStoragePath);
+
+setInterval(function () {
+    manager.clean_up();
+}, config.document_manager_clean_up_interval_in_ms);
+
+
 function start(app) {
-    // Document Manager
-    if (!fs.existsSync(documentStoragePath)) {
-        fs.mkdirSync(documentStoragePath);
-    }
-    const manager = new DocumentManager(documentStoragePath);
-
-    setInterval(function () {
-        manager.clean_up();
-    }, config.document_manager_clean_up_interval_in_ms);
-
     // Create Socket.IO
     const server = http.Server(app.callback());
     const io = new socket_io(server);
@@ -77,6 +79,18 @@ function start(app) {
     return server;
 }
 
+async function create_new_doc() {
+    const doc_id = await doc_id_generator.generate(manager);
+    return await manager.add(doc_id);
+}
+
+async function check_doc_id_existence(doc_id) {
+    const doc = await manager.get(doc_id);
+    return doc !== null;
+}
+
 module.exports = {
-    start: start
+    start: start,
+    create: create_new_doc,
+    check: check_doc_id_existence,
 };

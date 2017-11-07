@@ -1,6 +1,7 @@
 const config = require('./config');
 const router = require('./routers/index');
 const util = require('util');
+const koaBodyParser = require('koa-bodyparser');
 const koaStatic = require('koa-static');
 const koa = require('koa');
 const path = require('path');
@@ -15,6 +16,9 @@ function start() {
 
     // Static
     app.use(koaStatic(path.join(__dirname, staticPath)));
+
+    // Body Parser
+    app.use(koaBodyParser());
 
     // Logging
     app.use(async (ctx, next) => {

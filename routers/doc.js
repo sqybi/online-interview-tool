@@ -5,5 +5,5 @@ const controller = require('../controllers/doc');
 
 module.exports =
     router
-        .get('/', controller.new_doc)
+        .post('/__create', controller.post_create)
         .get('doc', '/:doc_id', controller.get_doc);
