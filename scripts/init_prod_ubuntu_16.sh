@@ -10,6 +10,7 @@ sudo apt install -y git nodejs nginx
 
 git clone https://github.com/sqybi/online-interview-tool.git
 cd online-interview-tool
+cp config.js.example config.js
 
 npm install
 sudo npm install -g pm2

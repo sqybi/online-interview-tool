@@ -7,6 +7,7 @@ sudo apt install -y git nodejs build-essential
 
 git clone https://github.com/sqybi/online-interview-tool.git
 cd online-interview-tool
+cp config.js.example config.js
 
 npm install
 
