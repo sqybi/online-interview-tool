@@ -5,5 +5,4 @@ module.exports = {
     document_manager_clean_up_interval_in_ms: 1000,  // 1 second
     max_operations_stored: 100000,
     doc_id_length: 6,
-    document_creation_token: '',  // Generate randomly here
 };
