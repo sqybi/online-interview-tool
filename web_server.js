@@ -5,7 +5,7 @@ const koaStatic = require('koa-static');
 const koa = require('koa');
 const path = require('path');
 
-const staticPath = './static';
+const staticPath = './dist/static';
 
 function start() {
     // koa
