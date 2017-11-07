@@ -63,5 +63,5 @@ typings/
 # Cache
 documents/
 
-# config example
-config.js.example
+# real config
+config.js
