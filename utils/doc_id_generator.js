@@ -18,7 +18,7 @@ async function generate_random_string (length) {
 module.exports = {
     generate: async function (manager) {
         let doc_id = "";
-        while (doc_id === "" || await manager.get(doc_id) !== null) {
+        while (doc_id === "" || await manager.get_or_load(doc_id) !== null) {
             doc_id = await generate_random_string(config.doc_id_length);
         }
         return doc_id;

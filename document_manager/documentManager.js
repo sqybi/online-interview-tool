@@ -8,10 +8,22 @@ function DocumentManager(base_path) {
 
 // Document Management
 
-DocumentManager.prototype.add = async function (doc_id) {
+DocumentManager.prototype.create = async function (doc_id) {
     this.docs[doc_id] = new Document(doc_id);
-    await this.docs[doc_id].load(this.base_path);
+    await this.docs[doc_id].save(this.base_path);
     return this.docs[doc_id];
+};
+
+
+DocumentManager.prototype.load = async function (doc_id) {
+    this.docs[doc_id] = new Document(doc_id);
+    const result = await this.docs[doc_id].load(this.base_path);
+    if (result) {
+        return this.docs[doc_id];
+    } else {
+        delete this.docs[doc_id];
+        return null;
+    }
 };
 
 // Remove from memory
@@ -36,6 +48,14 @@ DocumentManager.prototype.get = async function (doc_id) {
     } else {
         return this.docs[doc_id];
     }
+};
+
+DocumentManager.prototype.get_or_load = async function (doc_id) {
+    let doc = await this.get(doc_id);
+    if (doc === null) {
+        doc = await this.load(doc_id);
+    }
+    return doc;
 };
 
 // Memory Management

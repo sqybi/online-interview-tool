@@ -39,18 +39,22 @@ Document.prototype.save = async function (base_path) {
 };
 
 Document.prototype.load = async function (base_path) {
-    let operations_path = path.join(base_path, this.id + '.operations.json');
     let content_path = path.join(base_path, this.id + '.content.json');
-    let operations_json = fs.existsSync(operations_path) ? fs.readFileSync(operations_path) : '[""]';
-    let content_json = fs.existsSync(content_path) ? fs.readFileSync(content_path) : '[""]';
-    this.operations = JSON.parse(operations_json);
-    this.current_content = JSON.parse(content_json);
-    if (!Array.isArray(this.operations)) {
-        this.operations = [];
+    let content_exists = fs.existsSync(content_path);
+    if (content_exists) {
+        let operations_path = path.join(base_path, this.id + '.operations.json');
+        let content_json = content_exists ? fs.readFileSync(content_path) : '[""]';
+        let operations_json = fs.existsSync(operations_path) ? fs.readFileSync(operations_path) : '[""]';
+        this.current_content = JSON.parse(content_json);
+        this.operations = JSON.parse(operations_json);
+        if (!Array.isArray(this.operations)) {
+            this.operations = [];
+        }
+        if (!Array.isArray(this.current_content) || this.current_content.length === 0) {
+            this.current_content = [''];
+        }
     }
-    if (!Array.isArray(this.current_content) || this.current_content.length === 0) {
-        this.current_content = [''];
-    }
+    return content_exists;
 };
 
 Document.prototype.delete = async function (base_path) {

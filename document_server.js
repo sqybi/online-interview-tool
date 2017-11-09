@@ -81,11 +81,11 @@ function start(app) {
 
 async function create_new_doc() {
     const doc_id = await doc_id_generator.generate(manager);
-    return await manager.add(doc_id);
+    return await manager.create(doc_id);
 }
 
 async function check_doc_id_existence(doc_id) {
-    const doc = await manager.get(doc_id);
+    const doc = await manager.get_or_load(doc_id);
     return doc !== null;
 }
 
