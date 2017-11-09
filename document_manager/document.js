@@ -86,7 +86,7 @@ Document.prototype.insert = async function (operation) {
     let lines = operation.lines.slice();
     let s_row = operation.start.row;
     let s_col = operation.start.column;
-    if (s_row >= this.current_content.length) {
+    if (s_row >= this.current_content.length) {-
         this.current_content.push('');
     }
     let origin_data_first_half = this.current_content[s_row].slice(0, s_col);
