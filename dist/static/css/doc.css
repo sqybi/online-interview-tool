@@ -72,10 +72,7 @@ body {
     background-color:#353535;
 }
 .accordion .accordion-heading{
-    /*height:82px;*/
-    /*box-shadow: inset 0 0px 5px 0px rgb(56,56,58);*/
-    /*overflow: hidden;*/
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #252525;
 }
 .accordion-heading .accordion-toggle{
     height:82px;
@@ -130,14 +127,11 @@ body {
     outline-color: #49ac3d;
 }
 
-.toolbar-selector.bootstrap-select button{
-    height:28px;
-    background-color:#353535;
-    border:2px solid #49813b;
-    border-radius:5px;
-    color:#ccc;
-}
+
 .ace_gutter,.ace_scroller{
-    top:20px !important;
+    top:4px !important;
 }
+
+
+
 
