@@ -173,7 +173,9 @@ socket.on('connect', function () {
                         socket.emit('join', {
                             doc_id: doc_id
                         });
-                        $('#disconnected-alert').css('visibility', 'hidden');
+                        $('#disconnected-alert').css({'border-color':'#4390a3'}).height(0).find('span').html('CONNECTED').css({'color':'#4390a3'});
+                        $('#disconnected-alert .unhappyface').css({'display':'none'});
+                        $('#disconnected-alert .happyface').css({'display':'inline-block'});
                         connected = true;
                         editor.setReadOnly(false);
 
@@ -199,8 +201,9 @@ socket.on('disconnect', function () {
                     case 0:
                         editor.setReadOnly(true);
                         connected = false;
-                        $('#disconnected-alert').css('visibility', 'visible');
-
+                        $('#disconnected-alert').css({'border-color':'#dc5d55'}).height(20).find('span').html("DISCONNECTED").css({'color':'#dc5d55'});
+                        $('#disconnected-alert .unhappyface').css({'display':'inline-block'});
+                        $('#disconnected-alert .happyface').css({'display':'none'});
                     case 3:
                     case 'end':
                         return _context6.stop();
