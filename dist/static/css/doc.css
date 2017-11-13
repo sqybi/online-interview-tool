@@ -137,3 +137,7 @@ body {
     border-radius:5px;
     color:#ccc;
 }
+.ace_gutter,.ace_scroller{
+    top:20px !important;
+}
+
