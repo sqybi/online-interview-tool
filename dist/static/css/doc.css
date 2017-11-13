@@ -132,6 +132,50 @@ body {
     top:4px !important;
 }
 
+.bootstrap-select{
+    height:28px;
+    width:100% !important;
+    background-color:#353535;
+}
+.bootstrap-select button{
+    height:28px;
+    padding-top:0;
+    padding-bottom: 0;
+    background-color:#353535 !important;
+    color:#ccc;
+    border:2px solid #49813b !important;
+    outline: 0 !important;
+}
+.bootstrap-select button.dropdown-toggle:focus{
+    outline: none !important;
+}
+.bootstrap-select button:active{
+    border-color:#49ac3d !important;
+    outline-color: #49ac3d !important;
+}
+.bootstrap-select button span{
+    padding:0;
+    line-height:24px;
+    color:#ccc;
+    background-color:#353535;
+}
+.bootstrap-select .dropdown-menu {
+    background-color: #353535;
+    color:#ccc;
+}
+.bootstrap-select .dropdown-menu>li>a{
+    color:white;
+}
+.bootstrap-select .dropdown-menu li a span{
+    font-size:12px;
+    line-height:12px;
+}
+.bootstrap-select .dropdown-menu>li>a:hover{
+    background-color:#49ac3d !important;
+}
+.bootstrap-select .dropdown-menu .selected a{
+    background-color:#49ac3d !important;
+}
 
 
 

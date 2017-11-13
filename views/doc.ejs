@@ -42,7 +42,7 @@
                             Theme:
                         </div>
                         <div class="right">
-                            <select id="editor-theme" name="Theme" class="toolbar-selector">
+                            <select id="editor-theme" name="Theme" class="selectpicker show-tick">
                                 <option value="ace/theme/solarized_dark" selected>Solarized Dark</option>
                             </select>
                         </div>
@@ -63,7 +63,7 @@
                                     <li class="option">1</li>
                                 </ul>
                             </div>-->
-                            <select name="Highlight" id="editor-highlight" class="toolbar-selector">
+                            <select name="Highlight" id="editor-highlight" class="selectpicker show-tick">
                                 <option value="ace/mode/plain_text" selected>Plain Text</option>
                                 <option value="ace/mode/c_cpp">C++</option>
                                 <option value="ace/mode/csharp">C#</option>
@@ -78,7 +78,13 @@
                             Keymap:
                         </div>
                         <div class="right">
-                            <select name="Keymap" id="editor-keymap" class="toolbar-selector">
+                            <!--<select name="Keymap" id="editor-keymap" class="toolbar-selector">-->
+                                <!--<option value="" selected>Normal</option>-->
+                                <!--<option value="ace/keyboard/emacs">Emacs</option>-->
+                                <!--<option value="ace/keyboard/vim">VIM</option>-->
+                            <!--</select>-->
+
+                            <select name="Keymap" id="editor-keymap"  class="selectpicker show-tick">
                                 <option value="" selected>Normal</option>
                                 <option value="ace/keyboard/emacs">Emacs</option>
                                 <option value="ace/keyboard/vim">VIM</option>
