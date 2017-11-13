@@ -133,9 +133,12 @@ var editor = ace.edit('editor');
 var editor_session = editor.getSession();
 
 // Editor settings
+editor.setReadOnly(true);
 editor.setFontSize(16);
 editor.$blockScrolling = Infinity;
-editor.setReadOnly(true);var highlight_selector = $('#editor-highlight');
+editor_session.setTabSize(4);
+editor_session.setUseSoftTabs(true);
+editor_session.setUseWrapMode(true);var highlight_selector = $('#editor-highlight');
 highlight_selector.on('change', function () {
     editor_session.setMode(highlight_selector.val());
 });

@@ -18,9 +18,12 @@ const editor = ace.edit('editor');
 const editor_session = editor.getSession();
 
 // Editor settings
+editor.setReadOnly(true);
 editor.setFontSize(16);
 editor.$blockScrolling = Infinity;
-editor.setReadOnly(true);
+editor_session.setTabSize(4);
+editor_session.setUseSoftTabs(true);
+editor_session.setUseWrapMode(true);
 
 // Functionality
 async function editor_start_sync() {
