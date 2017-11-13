@@ -34,7 +34,7 @@ function start(app) {
             doc_id = data.doc_id;
             doc = await manager.get(doc_id);
             if (doc === null) {
-                doc = await manager.add(doc_id);
+                doc = await manager.load(doc_id);
             }
             if (!(doc_id in sockets_list_by_doc_id)) {
                 sockets_list_by_doc_id[doc_id] = [];
