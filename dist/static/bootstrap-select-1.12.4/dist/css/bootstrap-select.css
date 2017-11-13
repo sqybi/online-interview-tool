@@ -116,7 +116,6 @@ select.selectpicker {
 }
 .bootstrap-select.btn-group.bs-container .dropdown-menu {
   z-index: 1060;
-  top:-100px;
 }
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
   display: inline-block;
