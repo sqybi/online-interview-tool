@@ -67,16 +67,20 @@ body {
     border-radius: 0;
 }
 
-.sidebar {
-    position: absolute;
-    top: 66px;
-    right: 0;
-    bottom: 0;
-    width: 252px;
-    background-color: #353535;
+
+
+.sidebar{
+    position:fixed;
+    top:66px;
+    right:0;
+    bottom:0;
+    width:252px;
+    background-color:#353535;
+    overflow: auto;
 }
 
-.accordion .accordion-heading {
+.accordion .accordion-heading{
+
     border-bottom: 1px solid #252525;
 }
 
