@@ -39,30 +39,9 @@
                 <div class="sidebar-item-container">
                     <div class="group">
                         <div class="left">
-                            Theme:
-                        </div>
-                        <div class="right">
-                            <select id="editor-theme" name="Theme" class="selectpicker show-tick">
-                                <option value="ace/theme/solarized_dark" selected>Solarized Dark</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="left">
                             Language:
                         </div>
                         <div class="right">
-                            <!--<div  class="toolbar-selector">
-                                <span class="text" ></span>
-                                <i class="glyphicon glyphicon-triangle-bottom bottom"></i>
-                                <ul class="data">
-                                    <li class="option"></li>
-                                    <li class="option">1</li>
-                                    <li class="option">1</li>
-                                    <li class="option">1</li>
-                                    <li class="option">1</li>
-                                </ul>
-                            </div>-->
                             <select name="Highlight" id="editor-highlight" class="selectpicker show-tick">
                                 <option value="ace/mode/plain_text" selected>Plain Text</option>
                                 <option value="ace/mode/c_cpp">C++</option>
@@ -75,19 +54,34 @@
                     </div>
                     <div class="group">
                         <div class="left">
+                            Tab size:
+                        </div>
+                        <div class="right">
+                            <select name="tab-size" id="editor-tab-size" class="selectpicker show-tick">
+                                <option value="2">2 spaces</option>
+                                <option value="4" selected>4 spaces</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="left">
                             Keymap:
                         </div>
                         <div class="right">
-                            <!--<select name="Keymap" id="editor-keymap" class="toolbar-selector">-->
-                            <!--<option value="" selected>Normal</option>-->
-                            <!--<option value="ace/keyboard/emacs">Emacs</option>-->
-                            <!--<option value="ace/keyboard/vim">VIM</option>-->
-                            <!--</select>-->
-
                             <select name="Keymap" id="editor-keymap" class="selectpicker show-tick">
                                 <option value="" selected>Normal</option>
                                 <option value="ace/keyboard/emacs">Emacs</option>
                                 <option value="ace/keyboard/vim">VIM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="left">
+                            Theme:
+                        </div>
+                        <div class="right">
+                            <select id="editor-theme" name="Theme" class="selectpicker show-tick">
+                                <option value="ace/theme/solarized_dark" selected>Solarized Dark</option>
                             </select>
                         </div>
                     </div>

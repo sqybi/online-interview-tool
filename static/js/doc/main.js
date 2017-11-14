@@ -70,6 +70,13 @@ highlight_selector.on('change', function () {
 });
 editor_session.setMode(highlight_selector.val());
 
+// Highlight Language Selector
+const tab_size_selector = $('#editor-tab-size');
+tab_size_selector.on('change', function () {
+    editor_session.setTabSize(parseInt(tab_size_selector.val()));
+});
+editor_session.setMode(highlight_selector.val());
+
 // Theme Selector
 const theme_selector = $('#editor-theme');
 theme_selector.on('change', function () {
