@@ -3,20 +3,22 @@
 /**
  * Created by Nz on 2017/11/10.
  */
-var activeToolBarSelector;
+var activeToolBarSelector = void 0;
+
 function activeToolBarSelectorHide(activeToolBarSelector) {
     if (activeToolBarSelector) activeToolBarSelector.find('.data').eq(0).hide();
 }
+
 $(document).on('click', function (evt) {
     activeToolBarSelectorHide(activeToolBarSelector);
 });
+
 $('.toolbar-selector').on('click', function (evt) {
     evt.stopPropagation();
     activeToolBarSelectorHide(activeToolBarSelector);
     activeToolBarSelector = $(this);
     activeToolBarSelector.find('.data').eq(0).show();
 });
-
 $('.toolbar-selector .data .option').on('click', function (evt) {
     evt.stopPropagation();
     var text = $(this).html();
