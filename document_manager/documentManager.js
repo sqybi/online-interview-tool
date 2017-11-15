@@ -61,6 +61,7 @@ DocumentManager.prototype.get_or_load = async function (doc_id) {
 // Memory Management
 
 DocumentManager.prototype.clean_up = function () {
+    console.log(this.docs);
     const current_time = new Date();
     for (let doc_id in this.docs) {
         this.docs[doc_id].save(this.base_path);
