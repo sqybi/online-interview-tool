@@ -15,9 +15,8 @@ const manager = new DocumentManager(documentStoragePath);
 
 // Cleanup document manager
 setInterval(function () {
-        manager.clean_up();
-    }, config.document_manager_clean_up_interval_in_ms
-);
+    manager.clean_up();
+}, config.document_manager_clean_up_interval_in_ms);
 
 // Play with sockets
 function start(app) {
