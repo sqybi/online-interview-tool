@@ -65,3 +65,6 @@ documents/
 
 # real config
 config.js
+
+# NPM
+package-lock.json
