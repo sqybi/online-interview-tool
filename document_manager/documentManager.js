@@ -60,15 +60,20 @@ DocumentManager.prototype.get_or_load = async function (doc_id) {
 
 // Memory Management
 
-DocumentManager.prototype.clean_up = function () {
-    console.log(this.docs);
+DocumentManager.prototype.clean_up = async function () {
     const current_time = new Date();
-    for (let doc_id in this.docs) {
-        this.docs[doc_id].save(this.base_path);
+    let saved_docs = 0;
+    let cleaned_docs = 0;
+    for (const doc_id in this.docs) {
+        if (await this.docs[doc_id].save(this.base_path)) {
+            saved_docs++;
+        }
         if (current_time - this.docs[doc_id].last_visit > config.document_manager_timeout_in_ms) {
             this.remove(doc_id);
+            cleaned_docs++;
         }
     }
+    console.log('[Document Manager] ' + saved_docs + ' saved; ' + cleaned_docs + ' removed.');
 };
 
 // Exports

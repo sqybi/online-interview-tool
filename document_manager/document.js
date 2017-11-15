@@ -35,7 +35,7 @@ Document.prototype.apply = async function (operation) {
 
 Document.prototype.save = async function (base_path) {
     if (!this.modified) {
-        return;
+        return false;
     }
     const operations_path = path.join(base_path, this.id + '.operations.json');
     const content_path = path.join(base_path, this.id + '.content.json');
@@ -44,6 +44,7 @@ Document.prototype.save = async function (base_path) {
     fs.writeFileSync(operations_path, operations_json);
     fs.writeFileSync(content_path, content_json);
     this.modified = false;
+    return true;
 };
 
 Document.prototype.load = async function (base_path) {
